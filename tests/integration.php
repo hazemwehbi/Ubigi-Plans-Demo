@@ -1,0 +1,94 @@
+<?php
+/** Définir UPD_WP_ROOT vers une installation WordPress jetable. */
+$root=getenv('UPD_WP_ROOT');
+if(!$root || !is_file($root.'/wp-load.php')) { fwrite(STDERR,"Set UPD_WP_ROOT to a disposable WordPress installation.\n"); exit(1); }
+require $root.'/wp-load.php';
+require_once ABSPATH.'wp-admin/includes/plugin.php';
+$plugin='ubigi-plans-demo/ubigi-plans-demo.php';
+$result=activate_plugin($plugin);
+if(is_wp_error($result)) { throw new RuntimeException($result->get_error_message()); }
+function check($condition,$name) { if(!$condition) { throw new RuntimeException('FAIL: '.$name); } echo 'PASS: '.$name."\n"; }
+UPD_Plugin::register();
+UPD_Plugin::activate();
+$count=(int)wp_count_posts('upd_plan')->publish;
+check($count===12,'12 seeded plans');
+$pages=get_option('upd_pages');
+UPD_Plugin::activate();
+check((int)wp_count_posts('upd_plan')->publish===$count && get_option('upd_pages')===$pages,'reactivation is idempotent');
+function request($path,$params=array(),$method='GET') { $r=new WP_REST_Request($method,$path); foreach($params as $k=>$v) { $r->set_param($k,$v); } return rest_do_request($r); }
+wp_set_current_user(0);
+$list=request('/ubigi/v1/plans',array('country'=>'jp','min_gb'=>5));
+check($list->get_status()===200 && $list->get_data()['total']===1,'country and data filters');
+$first=$list->get_data()['items'][0];
+check(request('/ubigi/v1/plans/'.$first['id'])->get_status()===200,'public plan details');
+check(request('/ubigi/v1/plans',array('per_page'=>51))->get_status()===400,'pagination upper bound');
+check(request('/ubigi/v1/plans',array('page'=>1.5))->get_status()===400,'reject fractional pages');
+check(request('/ubigi/v1/plans',array('min_price'=>50,'max_price'=>10))->get_status()===400,'invalid range rejected');
+check(request('/ubigi/v1/plans',array('search'=>array('bad')))->get_status()===400,'array search rejected');
+check(request('/ubigi/v1/plans',array('search'=>'Japan'))->get_data()['total']===2,'destination search');
+check(request('/ubigi/v1/plans',array('page'=>2,'per_page'=>5))->get_data()['page']===2,'pagination');
+check(request('/ubigi/v1/countries')->get_status()===200,'countries available');
+check(request('/ubigi/v1/health')->get_data()===array('status'=>'ok','demo'=>true),'health exposes no server details');
+check(request('/ubigi/v1/ai',array('id'=>$first['id']),'POST')->get_status()===401,'anonymous AI denied');
+$id=wp_insert_post(array('post_type'=>'upd_plan','post_title'=>'Secret draft','post_status'=>'draft'));
+check(request('/ubigi/v1/plans/'.$id)->get_status()===404,'draft cannot be read');
+wp_update_post(array('ID'=>$id,'post_status'=>'publish','post_password'=>'secret'));
+check(request('/ubigi/v1/plans/'.$id)->get_status()===404,'password protected plan cannot be read');
+wp_delete_post($id,true);
+$old=request('/ubigi/v1/plans',array('country'=>'jp','min_gb'=>5))->get_data()['items'][0]['price'];
+update_post_meta($first['id'],'_upd_price',123);
+check(request('/ubigi/v1/plans',array('country'=>'jp','min_gb'=>5))->get_data()['items'][0]['price']===123.0,'metadata change invalidates cache');
+update_post_meta($first['id'],'_upd_price',$old);
+check(is_wp_error(UPD_Admin::validate(array('gb'=>-1,'days'=>7,'price'=>3,'type'=>'local','currency'=>'EUR'))),'negative data rejected');
+check(is_wp_error(UPD_Admin::validate(array('gb'=>1,'days'=>1.5,'price'=>3,'type'=>'local','currency'=>'EUR'))),'fractional validity rejected');
+check(!is_wp_error(UPD_Admin::validate(array('gb'=>5,'days'=>7,'price'=>3,'type'=>'local','currency'=>'EUR'))),'valid plan accepted');
+check(str_contains(do_shortcode('[ubigi_plans]'),'upd-filters'),'catalogue renders');
+check(str_contains(do_shortcode('[ubigi_countries]'),'destination=jp'),'destination links render');
+$admins=get_users(array('role'=>'administrator','number'=>1)); wp_set_current_user($admins[0]->ID);
+check(request('/ubigi/v1/ai',array('id'=>$first['id']),'POST')->get_status()===400,'AI disabled by default');
+$original_post=$_POST;
+$_POST=array('upd_nonce'=>wp_create_nonce('upd_plan'),'upd'=>array('gb'=>10,'days'=>30,'price'=>11.25,'type'=>'local','currency'=>'EUR'));
+UPD_Admin::save($first['id'],get_post($first['id']));
+check((float)get_post_meta($first['id'],'_upd_price',true)===11.25,'authorized editor nonce saves specifications');
+wp_set_current_user(0);
+$_POST['upd']['price']=99;
+UPD_Admin::save($first['id'],get_post($first['id']));
+check((float)get_post_meta($first['id'],'_upd_price',true)===11.25,'anonymous forged editor save denied');
+$_POST=$original_post;
+wp_set_current_user($admins[0]->ID);
+update_post_meta($first['id'],'_upd_price',$old);
+$options=UPD_Plugin::options();
+$enabled=$options; $enabled['ai']=1; $enabled['webhook_enabled']=1; $enabled['webhook']='https://example.com/webhook';
+update_option('upd_settings',$enabled,false);
+update_option('upd_ai_key','test-only-not-a-real-key',false);
+update_option('upd_webhook_secret','test-only-signing-secret',false);
+$sent=array();
+$mock=static function($pre,$args,$url) use(&$sent) {
+ $sent[]=array('args'=>$args,'url'=>$url);
+ if(str_contains($url,'openai.com')) { return array('headers'=>array(),'response'=>array('code'=>200,'message'=>'OK'),'body'=>wp_json_encode(array('output'=>array(array('content'=>array(array('type'=>'output_text','text'=>'Editorial draft only.'))))))); }
+ return array('headers'=>array(),'response'=>array('code'=>204,'message'=>'No Content'),'body'=>'');
+};
+add_filter('pre_http_request',$mock,10,3);
+delete_transient('upd_ai_'.get_current_user_id());
+$before=get_post($first['id'])->post_content;
+$draft=request('/ubigi/v1/ai',array('id'=>$first['id'],'task'=>'seo','language'=>'French'),'POST');
+check($draft->get_status()===200 && $draft->get_data()['published']===false && str_contains($draft->get_data()['draft'],'Editorial'),'mock AI draft is returned');
+check(get_post($first['id'])->post_content===$before,'AI does not change saved content');
+check(request('/ubigi/v1/ai',array('id'=>$first['id']),'POST')->get_status()===429,'AI rate limit enforced');
+UPD_Plugin::webhook($first['id']);
+$last=end($sent); $signature=hash_hmac('sha256',$last['args']['body'],'test-only-signing-secret');
+check(hash_equals($signature,$last['args']['headers']['X-Ubigi-Signature']),'webhook signs exact payload');
+check($last['args']['redirection']===0,'webhook redirects disabled');
+$logs=wp_json_encode(get_option('upd_logs'));
+check(!str_contains($logs,'test-only') && !str_contains($logs,'Editorial'),'logs do not contain secrets or content');
+remove_filter('pre_http_request',$mock,10);
+$failure=static function() { return new WP_Error('http_request_failed','Sensitive provider error must not leak'); };
+add_filter('pre_http_request',$failure,10,3);
+delete_transient('upd_ai_'.get_current_user_id());
+$failed=request('/ubigi/v1/ai',array('id'=>$first['id']),'POST');
+check($failed->get_status()===502 && !str_contains(wp_json_encode($failed->get_data()),'Sensitive'),'provider failure handled without leaking details');
+remove_filter('pre_http_request',$failure,10);
+update_option('upd_settings',$options,false); delete_option('upd_ai_key'); delete_option('upd_webhook_secret'); delete_transient('upd_ai_'.get_current_user_id());
+wp_unschedule_hook('upd_webhook');
+UPD_Plugin::invalidate();
+echo "Integration checks complete.\n";

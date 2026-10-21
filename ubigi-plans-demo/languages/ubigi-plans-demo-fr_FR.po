@@ -1,0 +1,266 @@
+msgid ""
+msgstr "Project-Id-Version: Ubigi Plans Demo 1.0.0\nContent-Type: text/plain; charset=UTF-8\nLanguage: fr_FR\nPlural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "%d days validity"
+msgstr "Validité de %d jours"
+
+msgid "%d demo plans"
+msgstr "%d forfaits de démonstration"
+
+msgid "%d demo plans found. Prices are in each plan’s listed currency."
+msgstr "%d forfaits de démonstration trouvés. Les prix sont exprimés dans la devise de chaque forfait."
+
+msgid "AI Assistant"
+msgstr "Assistant IA"
+
+msgid "AI is disabled or its key is missing."
+msgstr "L’IA est désactivée ou sa clé est absente."
+
+msgid "AI request failed. Check your key, model and provider account."
+msgstr "Échec de la demande IA. Vérifiez la clé, le modèle et le compte fournisseur."
+
+msgid "API Documentation"
+msgstr "Documentation API"
+
+msgid "Activate this plugin separately on each site. Network activation is not supported."
+msgstr "Activez cette extension séparément sur chaque site. L’activation réseau n’est pas prise en charge."
+
+msgid "All destinations"
+msgstr "Toutes les destinations"
+
+msgid "Assign one or more countries or regions using the destination box. All packages are demo data."
+msgstr "Attribuez un ou plusieurs pays ou régions dans le panneau des destinations. Tous les forfaits sont fictifs."
+
+msgid "Cache seconds (0–3600)"
+msgstr "Durée du cache en secondes (0–3600)"
+
+msgid "Configured. Leave blank to retain."
+msgstr "Configuré. Laissez le champ vide pour conserver la valeur."
+
+msgid "Countries & regions"
+msgstr "Pays et régions"
+
+msgid "Country / region"
+msgstr "Pays ou région"
+
+msgid "Currency ISO code"
+msgstr "Code ISO de la devise"
+
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+msgid "Data in GB"
+msgstr "Volume de données en Go"
+
+msgid "Default ISO currency for new plans (no conversion)"
+msgstr "Devise ISO par défaut des nouveaux forfaits (sans conversion)"
+
+msgid "Delete ALL plugin plans, destinations and created pages on uninstall"
+msgstr "Supprimer TOUS les forfaits, destinations et pages créées lors de la désinstallation"
+
+msgid "Demo catalogue · No real eSIM, payments or connectivity"
+msgstr "Catalogue de démonstration · Aucun paiement ni connexion eSIM réelle"
+
+msgid "Demo only · No purchase or real connectivity"
+msgstr "Démonstration uniquement · Aucun achat ni connexion réelle"
+
+msgid "Draft ready for review. Nothing has been published."
+msgstr "Brouillon prêt à être relu. Rien n’a été publié."
+
+msgid "Enable AI (sends selected plan content to OpenAI)"
+msgstr "Activer l’IA (transmet le contenu du forfait sélectionné à OpenAI)"
+
+msgid "Enable JavaScript to filter plans. Browse all plans below."
+msgstr "Activez JavaScript pour filtrer les forfaits. Consultez tous les forfaits ci-dessous."
+
+msgid "Enable n8n (sends plan content, including drafts, to configured URL)"
+msgstr "Activer n8n (transmet les forfaits, brouillons compris, à l’URL configurée)"
+
+msgid "Event"
+msgstr "Événement"
+
+msgid "Explore destinations"
+msgstr "Découvrir les destinations"
+
+msgid "Explore international data plans for your next adventure."
+msgstr "Découvrez les forfaits de données internationaux pour votre prochain voyage."
+
+msgid "Find a plan"
+msgstr "Trouver un forfait"
+
+msgid "Generate draft"
+msgstr "Générer un brouillon"
+
+msgid "Generating draft…"
+msgstr "Génération du brouillon…"
+
+msgid "Invalid model identifier."
+msgstr "Identifiant de modèle invalide."
+
+msgid "Language"
+msgstr "Langue"
+
+msgid "Loading plans…"
+msgstr "Chargement des forfaits…"
+
+msgid "Logs"
+msgstr "Journal"
+
+msgid "Maximum price"
+msgstr "Prix maximal"
+
+msgid "Minimum GB"
+msgstr "Volume minimal en Go"
+
+msgid "Minimum days"
+msgstr "Durée minimale en jours"
+
+msgid "Minimum price exceeds maximum."
+msgstr "Le prix minimal dépasse le prix maximal."
+
+msgid "Next"
+msgstr "Suivant"
+
+msgid "No draft returned."
+msgstr "Aucun brouillon reçu."
+
+msgid "No matching plans. Try changing your filters."
+msgstr "Aucun forfait correspondant. Modifiez vos filtres."
+
+msgid "Not configured."
+msgstr "Non configuré."
+
+msgid "Only the last 100 events are retained. Request bodies, URLs, credentials and provider errors are not logged."
+msgstr "Seuls les 100 derniers événements sont conservés. Les corps de requête, URL, identifiants et erreurs du fournisseur ne sont pas journalisés."
+
+msgid "OpenAI API key"
+msgstr "Clé API OpenAI"
+
+msgid "OpenAI model"
+msgstr "Modèle OpenAI"
+
+msgid "POST /ubigi/v1/ai requires manage_options and cookie authentication with X-WP-Nonce, or a WordPress application password over HTTPS."
+msgstr "POST /ubigi/v1/ai nécessite manage_options et une authentification par cookie avec X-WP-Nonce, ou un mot de passe d’application WordPress sur HTTPS."
+
+msgid "Page %1$d of %2$d"
+msgstr "Page %1$d sur %2$d"
+
+msgid "Plan"
+msgstr "Forfait"
+
+msgid "Plan not found."
+msgstr "Forfait introuvable."
+
+msgid "Plan pages"
+msgstr "Pages du catalogue"
+
+msgid "Plan specifications"
+msgstr "Caractéristiques du forfait"
+
+msgid "Plans"
+msgstr "Forfaits"
+
+msgid "Plans per page (1–50)"
+msgstr "Forfaits par page (1–50)"
+
+msgid "Please wait one minute before generating another draft."
+msgstr "Veuillez patienter une minute avant de générer un autre brouillon."
+
+msgid "Previous"
+msgstr "Précédent"
+
+msgid "Price"
+msgstr "Prix"
+
+msgid "Public GET endpoints; administrative changes use the WordPress editor with capability and nonce checks."
+msgstr "Points d’entrée GET publics ; les modifications passent par l’éditeur WordPress avec contrôles de capacité et de nonce."
+
+msgid "Published plans: %1$d · Drafts: %2$d · Destinations: %3$d"
+msgstr "Forfaits publiés : %1$d · Brouillons : %2$d · Destinations : %3$d"
+
+msgid "Remove stored secret"
+msgstr "Supprimer le secret enregistré"
+
+msgid "Request failed."
+msgstr "Échec de la requête."
+
+msgid "Request failed. Check your connection and try again."
+msgstr "Échec de la requête. Vérifiez votre connexion et réessayez."
+
+msgid "Requires WordPress 6.5 and PHP 8.1 or newer."
+msgstr "Nécessite WordPress 6.5 et PHP 8.1 ou des versions ultérieures."
+
+msgid "Reset"
+msgstr "Réinitialiser"
+
+msgid "Result"
+msgstr "Résultat"
+
+msgid "Retry"
+msgstr "Réessayer"
+
+msgid "Review the draft, then copy approved text to the plan editor. Nothing is published automatically."
+msgstr "Relisez le brouillon, puis copiez le texte approuvé dans l’éditeur du forfait. Aucune publication automatique."
+
+msgid "Search destination"
+msgstr "Rechercher une destination"
+
+msgid "Secrets are never sent to the frontend. Prefer UPD_AI_KEY and UPD_WEBHOOK_SECRET constants in wp-config.php; stored options are protected by WordPress access control, not encrypted at rest."
+msgstr "Les secrets ne sont jamais transmis au navigateur. Privilégiez les constantes UPD_AI_KEY et UPD_WEBHOOK_SECRET dans wp-config.php ; les options enregistrées sont protégées par les droits WordPress, sans chiffrement en base."
+
+msgid "Settings & API"
+msgstr "Paramètres et API"
+
+msgid "Settings saved."
+msgstr "Paramètres enregistrés."
+
+msgid "System Status"
+msgstr "État du système"
+
+msgid "Task"
+msgstr "Tâche"
+
+msgid "Training catalogue. No real eSIM connectivity or payments."
+msgstr "Catalogue pédagogique. Aucun paiement ni connexion eSIM réelle."
+
+msgid "Type: local, regional or global"
+msgstr "Type : local, régional ou mondial"
+
+msgid "UBIGI · PLANS DEMO"
+msgstr "UBIGI · FORFAITS DE DÉMONSTRATION"
+
+msgid "Unable to load plans."
+msgstr "Impossible de charger les forfaits."
+
+msgid "Use Plans to edit packages and Countries & regions to manage destinations. Installation never changes your theme, menu or home page."
+msgstr "Utilisez Forfaits pour modifier les offres et Pays et régions pour gérer les destinations. L’installation ne modifie ni le thème, ni les menus, ni l’accueil."
+
+msgid "Use a three-letter currency code."
+msgstr "Utilisez un code de devise à trois lettres."
+
+msgid "Validity in days"
+msgstr "Validité en jours"
+
+msgid "View plan"
+msgstr "Voir le forfait"
+
+msgid "Webhook disabled: provide a URL and signing secret."
+msgstr "Webhook désactivé : renseignez une URL et un secret de signature."
+
+msgid "Webhook must be a public HTTPS URL."
+msgstr "Le webhook doit être une URL HTTPS publique."
+
+msgid "Webhook signing secret"
+msgstr "Secret de signature du webhook"
+
+msgid "Where are you travelling?"
+msgstr "Où partez-vous ?"
+
+msgid "Your next destination. Connected."
+msgstr "Votre prochaine destination. Connectée."
+
+msgid "days"
+msgstr "jours"
+
+msgid "n8n webhook HTTPS URL"
+msgstr "URL HTTPS du webhook n8n"

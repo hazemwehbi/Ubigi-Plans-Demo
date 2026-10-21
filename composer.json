@@ -1,0 +1,13 @@
+{
+ "name": "demo/ubigi-plans-demo",
+ "description": "Outils de développement de l’extension WordPress Ubigi Plans Demo",
+ "type": "project",
+ "license": "GPL-2.0-or-later",
+ "require-dev": {
+  "squizlabs/php_codesniffer": "^3.13",
+  "wp-coding-standards/wpcs": "^3.4",
+  "dealerdirect/phpcodesniffer-composer-installer": "^1.2"
+ },
+ "config": {"allow-plugins": {"dealerdirect/phpcodesniffer-composer-installer": true}},
+ "scripts": {"lint": "phpcs"}
+}

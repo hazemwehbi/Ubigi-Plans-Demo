@@ -1,0 +1,266 @@
+msgid ""
+msgstr "Project-Id-Version: Ubigi Plans Demo 1.0.0\nContent-Type: text/plain; charset=UTF-8\nLanguage: \nPlural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "%d days validity"
+msgstr ""
+
+msgid "%d demo plans"
+msgstr ""
+
+msgid "%d demo plans found. Prices are in each plan’s listed currency."
+msgstr ""
+
+msgid "AI Assistant"
+msgstr ""
+
+msgid "AI is disabled or its key is missing."
+msgstr ""
+
+msgid "AI request failed. Check your key, model and provider account."
+msgstr ""
+
+msgid "API Documentation"
+msgstr ""
+
+msgid "Activate this plugin separately on each site. Network activation is not supported."
+msgstr ""
+
+msgid "All destinations"
+msgstr ""
+
+msgid "Assign one or more countries or regions using the destination box. All packages are demo data."
+msgstr ""
+
+msgid "Cache seconds (0–3600)"
+msgstr ""
+
+msgid "Configured. Leave blank to retain."
+msgstr ""
+
+msgid "Countries & regions"
+msgstr ""
+
+msgid "Country / region"
+msgstr ""
+
+msgid "Currency ISO code"
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Data in GB"
+msgstr ""
+
+msgid "Default ISO currency for new plans (no conversion)"
+msgstr ""
+
+msgid "Delete ALL plugin plans, destinations and created pages on uninstall"
+msgstr ""
+
+msgid "Demo catalogue · No real eSIM, payments or connectivity"
+msgstr ""
+
+msgid "Demo only · No purchase or real connectivity"
+msgstr ""
+
+msgid "Draft ready for review. Nothing has been published."
+msgstr ""
+
+msgid "Enable AI (sends selected plan content to OpenAI)"
+msgstr ""
+
+msgid "Enable JavaScript to filter plans. Browse all plans below."
+msgstr ""
+
+msgid "Enable n8n (sends plan content, including drafts, to configured URL)"
+msgstr ""
+
+msgid "Event"
+msgstr ""
+
+msgid "Explore destinations"
+msgstr ""
+
+msgid "Explore international data plans for your next adventure."
+msgstr ""
+
+msgid "Find a plan"
+msgstr ""
+
+msgid "Generate draft"
+msgstr ""
+
+msgid "Generating draft…"
+msgstr ""
+
+msgid "Invalid model identifier."
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Loading plans…"
+msgstr ""
+
+msgid "Logs"
+msgstr ""
+
+msgid "Maximum price"
+msgstr ""
+
+msgid "Minimum GB"
+msgstr ""
+
+msgid "Minimum days"
+msgstr ""
+
+msgid "Minimum price exceeds maximum."
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "No draft returned."
+msgstr ""
+
+msgid "No matching plans. Try changing your filters."
+msgstr ""
+
+msgid "Not configured."
+msgstr ""
+
+msgid "Only the last 100 events are retained. Request bodies, URLs, credentials and provider errors are not logged."
+msgstr ""
+
+msgid "OpenAI API key"
+msgstr ""
+
+msgid "OpenAI model"
+msgstr ""
+
+msgid "POST /ubigi/v1/ai requires manage_options and cookie authentication with X-WP-Nonce, or a WordPress application password over HTTPS."
+msgstr ""
+
+msgid "Page %1$d of %2$d"
+msgstr ""
+
+msgid "Plan"
+msgstr ""
+
+msgid "Plan not found."
+msgstr ""
+
+msgid "Plan pages"
+msgstr ""
+
+msgid "Plan specifications"
+msgstr ""
+
+msgid "Plans"
+msgstr ""
+
+msgid "Plans per page (1–50)"
+msgstr ""
+
+msgid "Please wait one minute before generating another draft."
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Price"
+msgstr ""
+
+msgid "Public GET endpoints; administrative changes use the WordPress editor with capability and nonce checks."
+msgstr ""
+
+msgid "Published plans: %1$d · Drafts: %2$d · Destinations: %3$d"
+msgstr ""
+
+msgid "Remove stored secret"
+msgstr ""
+
+msgid "Request failed."
+msgstr ""
+
+msgid "Request failed. Check your connection and try again."
+msgstr ""
+
+msgid "Requires WordPress 6.5 and PHP 8.1 or newer."
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Result"
+msgstr ""
+
+msgid "Retry"
+msgstr ""
+
+msgid "Review the draft, then copy approved text to the plan editor. Nothing is published automatically."
+msgstr ""
+
+msgid "Search destination"
+msgstr ""
+
+msgid "Secrets are never sent to the frontend. Prefer UPD_AI_KEY and UPD_WEBHOOK_SECRET constants in wp-config.php; stored options are protected by WordPress access control, not encrypted at rest."
+msgstr ""
+
+msgid "Settings & API"
+msgstr ""
+
+msgid "Settings saved."
+msgstr ""
+
+msgid "System Status"
+msgstr ""
+
+msgid "Task"
+msgstr ""
+
+msgid "Training catalogue. No real eSIM connectivity or payments."
+msgstr ""
+
+msgid "Type: local, regional or global"
+msgstr ""
+
+msgid "UBIGI · PLANS DEMO"
+msgstr ""
+
+msgid "Unable to load plans."
+msgstr ""
+
+msgid "Use Plans to edit packages and Countries & regions to manage destinations. Installation never changes your theme, menu or home page."
+msgstr ""
+
+msgid "Use a three-letter currency code."
+msgstr ""
+
+msgid "Validity in days"
+msgstr ""
+
+msgid "View plan"
+msgstr ""
+
+msgid "Webhook disabled: provide a URL and signing secret."
+msgstr ""
+
+msgid "Webhook must be a public HTTPS URL."
+msgstr ""
+
+msgid "Webhook signing secret"
+msgstr ""
+
+msgid "Where are you travelling?"
+msgstr ""
+
+msgid "Your next destination. Connected."
+msgstr ""
+
+msgid "days"
+msgstr ""
+
+msgid "n8n webhook HTTPS URL"
+msgstr ""

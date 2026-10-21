@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ruleset name="Ubigi Plans Demo">
+ <description>Règles WordPress et contrôles de sécurité de l’extension distribuée.</description>
+ <file>ubigi-plans-demo</file>
+ <arg name="extensions" value="php"/>
+ <rule ref="WordPress-Core"/>
+ <rule ref="WordPress.Security.EscapeOutput"/>
+ <rule ref="WordPress.Security.NonceVerification"/>
+ <rule ref="WordPress.Security.ValidatedSanitizedInput"/>
+</ruleset>
