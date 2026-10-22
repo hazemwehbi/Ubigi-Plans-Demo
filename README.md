@@ -2,8 +2,9 @@
 
 Extension WordPress autonome de présentation et de gestion de forfaits de données de voyage **fictifs**. Ce projet pédagogique est indépendant d’Ubigi et de Transatel. Il ne vend aucun forfait et ne fournit aucune connexion eSIM réelle.
 Liens de test:
-# Ubigi-Plans-Demo: https://nxa.vvk.temporary.site/website_d9d818d9/
-# ubigi-countries-Demo: https://nxa.vvk.temporary.site/website_d9d818d9/ubigi_countries/
+Ubigi-Plans-Demo: https://nxa.vvk.temporary.site/website_d9d818d9/
+ubigi-countries-Demo: https://nxa.vvk.temporary.site/website_d9d818d9/ubigi_countries/
+
 ## Installation
 
 1. Prérequis : WordPress 6.5 ou ultérieur, PHP 8.1 ou ultérieur et une base compatible avec WordPress. Activez séparément sur chaque site ; l’activation réseau n’est pas prise en charge.
